@@ -121,6 +121,16 @@ The system handles invalid cases such as:
 
 Errors are handled using guard clauses and exceptions where appropriate.
 
+## Design Questions
+
+**1. Putting all functions in the same service:**
+
+Putting all functionality in a single service works for small projects but is not recommended for larger systems. It mixes responsibilities like user management, room management, and booking logic, making the code harder to maintain, test, and extend. A better approach is to keep specialized services for users, rooms, and bookings, and use a facade (`HotelService`) to provide a simple entry point.
+
+**2. `setRoom(..)` not impacting previous bookings:**  
+Currently, updating a room creates a new instance so that past bookings remain consistent. Another approach could be to make rooms immutable and versioned, with bookings referencing a specific version. For this project, the snapshot approach is simple, effective, and ensures historical correctness, while still being easy to implement.
+
+
 ## How to Run
 
 1. **Clone the repository**
