@@ -89,7 +89,7 @@ The core service that manages:
 
 ---
 
-## 🔍 Business Rules Implemented
+##  Business Rules Implemented
 
 * A user can book a room **only if**:
 
